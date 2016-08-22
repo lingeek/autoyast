@@ -1,0 +1,298 @@
+<?xml version="1.0"?>
+<!DOCTYPE profile>
+<profile xmlns="http://www.suse.com/1.0/yast2ns" xmlns:config="http://www.suse.com/1.0/configns">
+  <bootloader>
+    <global>
+      <activate>false</activate>
+      <boot_boot>false</boot_boot>
+      <boot_custom/>
+      <boot_extended>false</boot_extended>
+      <boot_mbr>false</boot_mbr>
+      <boot_root>false</boot_root>
+      <generic_mbr>false</generic_mbr>
+    </global>
+    <loader_type>grub2</loader_type>
+  </bootloader>
+  <deploy_image>
+    <image_installation config:type="boolean">false</image_installation>
+  </deploy_image>
+  <dns-server>
+    <allowed_interfaces config:type="list"/>
+    <chroot>1</chroot>
+    <logging config:type="list"/>
+    <options config:type="list"/>
+    <start_service>0</start_service>
+    <use_ldap>0</use_ldap>
+    <zones config:type="list"/>
+  </dns-server>
+  <general>
+    <mode>
+      <confirm config:type="boolean">false</confirm>
+      <final_halt config:type="boolean">false</final_halt>
+      <final_reboot config:type="boolean">true</final_reboot>
+      <halt config:type="boolean">false</halt>
+      <second_stage config:type="boolean">true</second_stage>
+    </mode>
+    <proposals config:type="list"/>
+    <signature-handling>
+      <accept_file_without_checksum config:type="boolean">true</accept_file_without_checksum>
+      <accept_non_trusted_gpg_key config:type="boolean">true</accept_non_trusted_gpg_key>
+      <accept_unknown_gpg_key config:type="boolean">true</accept_unknown_gpg_key>
+      <accept_unsigned_file config:type="boolean">true</accept_unsigned_file>
+      <accept_verification_failed config:type="boolean">false</accept_verification_failed>
+      <import_gpg_key config:type="boolean">true</import_gpg_key>
+    </signature-handling>
+    <storage/>
+  </general>
+  <groups config:type="list"/>
+  <keyboard>
+    <keymap>english</keymap>
+  </keyboard>
+  <login_settings/>
+  <ntp-client>
+    <ntp_policy/>
+    <peers config:type="list"/>
+    <restricts config:type="list"/>
+    <start_at_boot config:type="boolean">false</start_at_boot>
+    <start_in_chroot config:type="boolean">true</start_in_chroot>
+    <sync_interval config:type="integer">5</sync_interval>
+    <synchronize_time config:type="boolean">false</synchronize_time>
+  </ntp-client>
+  <partitioning config:type="list">
+    <drive>
+      <disklabel>msdos</disklabel>
+      <initialize config:type="boolean">true</initialize>
+      <partitions config:type="list">
+        <partition>
+          <create config:type="boolean">true</create>
+          <crypt_fs config:type="boolean">false</crypt_fs>
+          <filesystem config:type="symbol">swap</filesystem>
+          <format config:type="boolean">true</format>
+          <loop_fs config:type="boolean">false</loop_fs>
+          <mount>swap</mount>
+          <mountby config:type="symbol">device</mountby>
+          <partition_id config:type="integer">130</partition_id>
+          <partition_nr config:type="integer">1</partition_nr>
+          <pool config:type="boolean">false</pool>
+          <raid_options/>
+          <resize config:type="boolean">false</resize>
+          <size>2G</size>
+          <subvolumes config:type="list"/>
+        </partition>
+        <partition>
+          <create config:type="boolean">true</create>
+          <crypt_fs config:type="boolean">false</crypt_fs>
+          <filesystem config:type="symbol">ext4</filesystem>
+          <format config:type="boolean">true</format>
+          <loop_fs config:type="boolean">false</loop_fs>
+          <mount>/</mount>
+          <mountby config:type="symbol">device</mountby>
+          <partition_id config:type="integer">131</partition_id>
+          <partition_nr config:type="integer">2</partition_nr>
+          <pool config:type="boolean">false</pool>
+          <raid_options/>
+          <resize config:type="boolean">false</resize>
+          <size>1024G</size>
+          <subvolumes config:type="list"/>
+        </partition>
+      </partitions>
+      <pesize/>
+      <type config:type="symbol">CT_DISK</type>
+      <use>all</use>
+    </drive>
+  </partitioning>
+  <networking>
+    <keep_install_network config:type="boolean">true</keep_install_network>
+  </networking>
+
+
+
+
+
+
+
+
+
+
+
+
+<add-on>
+	    <add_on_products config:type="list">
+	      <listentry>
+	        <media_url><![CDATA[http://download.opensuse.org/repositories/openSUSE:/Factory:/Update/standard/]]></media_url>
+	        <product>openSUSE-updates</product>
+	        <product_dir>/</product_dir>
+	      </listentry>
+	      <listentry>
+	        <media_url><![CDATA[http://download.opensuse.org/tumbleweed/repo/non-oss/]]></media_url>
+	        <product>openSUSE-non-oss</product>
+	        <product_dir>/</product_dir>
+	      </listentry>
+
+
+ <listentry>
+                <media_url><![CDATA[http://download.opensuse.org/tumbleweed/repo/oss/]]></media_url>
+                <product>openSUSE-oss</product>
+                <product_dir>/</product_dir>
+              </listentry>
+
+	    </add_on_products>
+</add-on>
+	
+  <software>
+    <packages config:type="list">
+      <package>openSUSE-release</package>
+      <package>syslinux</package>
+      <package>kexec-tools</package>
+      <package>grub2</package>
+      <package>glibc</package>
+      <package>e2fsprogs</package>
+      <package>zypper</package>
+      <package>wget</package>
+      <package>net-tools-deprecated</package>
+      <package>yast2</package>
+      <package>autoyast2</package>
+<package>yast2-firstboot</package>
+<package>virtualbox-guest-kmp-default</package>
+<package>virtualbox-guest-tools</package>
+
+    </packages>
+ <post-packages config:type="list">
+    <package>rubygem-puppet</package>
+  </post-packages>
+    <patterns config:type="list">
+      <pattern>base</pattern>
+      <pattern>enhanced_base</pattern>
+    </patterns>
+<do_online_update config:type="boolean">true</do_online_update>
+  </software>
+  <proxy>
+    <enabled config:type="boolean">false</enabled>
+    <ftp_proxy/>
+    <http_proxy/>
+    <https_proxy/>
+    <no_proxy>localhost</no_proxy>
+    <proxy_password/>
+    <proxy_user/>
+  </proxy>
+  <timezone>
+    <hwclock>UTC</hwclock>
+    <timezone>Europe/Vienna</timezone>
+  </timezone>
+  <user_defaults>
+    <expire/>
+    <group>100</group>
+    <groups/>
+    <home>/home</home>
+    <inactive>-1</inactive>
+    <no_groups config:type="boolean">true</no_groups>
+    <shell>/bin/bash</shell>
+    <skel>/etc/skel</skel>
+    <umask>022</umask>
+  </user_defaults>
+  <users config:type="list">
+    <user>
+      <encrypted config:type="boolean">false</encrypted>
+      <user_password>xxx123</user_password>
+      <username>root</username>
+    </user>
+  </users>
+
+<scripts>
+<chroot-scripts config:type="list">
+
+
+<script>
+<chrooted config:type="boolean">false</chrooted>
+<source>
+<![CDATA[
+
+echo "[Unit]" > /mnt/usr/lib/systemd/system/YaST2-Firstboot.service
+echo "Description=YaST2 Firstboot
+After=apparmor.service local-fs.target plymouth-start.service
+Before=getty@tty1.service serial-getty@ttyS0.service serial-getty@ttyS1.service serial-getty@ttyS2.service
+Before=display-manager.service network.service
+ConditionPathExists=/var/lib/YaST2/reconfig_system
+
+[Service]
+Type=oneshot
+Environment=SYSTEMCTL_OPTIONS=--ignore-dependencies TERM=linux
+ExecStartPre=-/usr/bin/plymouth --hide-splash
+ExecStart=/usr/lib/YaST2/startup/YaST2.Firstboot
+ExecStartPost=/usr/bin/rm -f /var/lib/YaST2/reconfig_system
+ExecStartPost=/usr/bin/systemctl restart systemd-vconsole-setup.service
+TimeoutSec=0
+RemainAfterExit=true
+StandardInput=tty
+
+
+[Install]
+WantedBy=default.target" >> /mnt/usr/lib/systemd/system/YaST2-Firstboot.service
+
+
+echo "[Unit]" > /mnt/usr/lib/systemd/system/YaST2-Second-Stage.service
+echo "Description=YaST2 Second Stage" >> /mnt/usr/lib/systemd/system/YaST2-Second-Stage.service
+echo "# If xinetd is enabled, make sure it's already running so we can stop it during" >> /mnt/usr/lib/systemd/system/YaST2-Second-Stage.service
+echo "# initialization of the VNC server" >> /mnt/usr/lib/systemd/system/YaST2-Second-Stage.service
+echo "After=apparmor.service local-fs.target plymouth-start.service
+Before=getty@tty1.service serial-getty@ttyS0.service serial-getty@ttyS1.service serial-getty@ttyS2.service
+Before=display-manager.service
+ConditionPathExists=/var/lib/YaST2/runme_at_boot
+ [Service]
+Type=oneshot
+# PX_MODULE_PATH=""  ==>
+# Do not load libproxy modules (config_kde4 module crashes because of Qt4/Qt5
+# clash), empty path causes that the installed modules are not found. Sysconfig
+# and envvar extensions are still loaded, /etc/sysconfig/proxy values are still
+# used correctly (see bnc#866692 and bnc#866692 for details).
+Environment=SYSTEMCTL_OPTIONS=--ignore-dependencies TERM=linux PX_MODULE_PATH=""
+# Workaround of bug in plymouth --> using deactivate option
+# in second boot stage in order to start ncurses yast correctly
+# (bnc#886488)
+# If the system starts in multi-user mode plymouth will be quit while
+# installation in order to ensure that installation will be finished on
+# console 1 and the login prompt. (bnc#903682,889757,897956)
+ExecStartPre=-/bin/sh -c 'if [ -x /usr/bin/plymouth ] ; then if [ `/usr/bin/systemctl get-default` = "multi-user.target" ];then /usr/bin/plymouth quit; else /usr/bin/pl
+ExecStart=/usr/lib/YaST2/startup/YaST2.Second-Stage
+RemainAfterExit=yes
+TimeoutSec=0
+ExecStartPost=/usr/bin/rm -f /var/lib/YaST2/runme_at_boot
+ExecStartPost=/usr/bin/systemctl restart systemd-vconsole-setup.service
+StandardInput=tty
+
+[Install]
+WantedBy=default.target" >> /mnt/usr/lib/systemd/system/YaST2-Second-Stage.service
+
+]]>
+</source>
+</script>
+</chroot-scripts>
+
+
+
+
+
+<init-scripts config:type="list">
+<script>
+<source>
+<![CDATA[
+chkconfig sshd on
+]]>
+</source>
+</script>
+</init-scripts>
+</scripts>
+
+
+<!-- Configuration file for Puppet Agents -->
+<files config:type="list">
+    <config_file>
+      <file_path>/etc/puppet/puppet.conf</file_path>
+      <file_location>http://192.168.2.177/puppet/puppet.conf</file_location>
+   </config_file>
+</files>
+<!-- END Configuration file for Puppet Agents -->
+
+</profile>
+
+ 
